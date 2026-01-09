@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Mis Metas de Vida</h2>
+  
+  <div class="add-meta">
+    <input 
+      type="text" 
+      [(ngModel)]="nuevaMeta" 
+      placeholder="Escribe una nueva meta..."
+      (keyup.enter)="agregarMeta()"
+    >
+    <button (click)="agregarMeta()">Agregar Meta</button>
+  </div>
+
+  <div class="metas-list">
+    <div class="meta-item" *ngFor="let meta of metas">
+      <span>{{ meta.meta }}</span>
+      <button class="btn-delete" (click)="eliminarMeta(meta.id)">Eliminar</button>
+    </div>
+    
+    <p *ngIf="metas.length === 0" class="no-metas">
+      No tienes metas registradas. ¡Agrega tu primera meta!
+    </p>
+  </div>
+</div>
